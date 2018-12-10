@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { CustomMaterialModule } from './material.module';
+import { SandboxComponent } from './sandbox/sandbox.component';
+import { SanitizePipe } from './pipes/sanitize.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    SandboxComponent,
+    SanitizePipe
   ],
   imports: [
     BrowserModule,

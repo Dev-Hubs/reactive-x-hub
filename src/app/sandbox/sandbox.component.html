@@ -1,0 +1,14 @@
+<p>
+  code-frame works!
+</p>
+<button (click)="onListen">lisen</button>
+<button (click)="onClick()">click</button>
+<iframe  
+[src]="safeURL" 
+style="width:100%;height:600px" 
+(load)="safeURL?onLoad($event):noop()" 
+sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
+id='shit'
+#iframe>
+
+</iframe> 
