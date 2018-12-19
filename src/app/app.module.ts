@@ -9,12 +9,14 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { CustomMaterialModule } from './material.module';
 import { SandboxComponent } from './sandbox/sandbox.component';
 import { SanitizePipe } from './pipes/sanitize.pipe';
+import { PagesModule } from './pages/pages.module';
+import { OperatorsModule } from './operators/operators.module';
+import { SandboxModule } from './sandbox/sandbox.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
-    SandboxComponent,
     SanitizePipe
   ],
   imports: [
@@ -22,7 +24,10 @@ import { SanitizePipe } from './pipes/sanitize.pipe';
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    PagesModule,
+    OperatorsModule,
+    SandboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]
