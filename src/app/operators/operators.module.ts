@@ -5,13 +5,15 @@ import { OperatorsRoutingModule } from './operators-routing.module';
 import { MapComponent } from './map/map.component';
 import { OperatorsComponent } from './operators.component';
 import { SandboxModule } from '../sandbox/sandbox.module';
-
+import { MatCardModule, MatButtonModule } from '@angular/material';
 
 @NgModule({
   imports: [
     CommonModule,
     OperatorsRoutingModule,
-    SandboxModule
+    SandboxModule,
+    MatCardModule,
+    MatButtonModule,
   ],
   declarations: [MapComponent, OperatorsComponent]
 })
