@@ -13,6 +13,7 @@ import {
 import { HubMessage } from './interfaces';
 import { HubEvents } from './enums';
 import { Stream } from './stream';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-sandbox',
@@ -68,13 +69,26 @@ export class SandboxComponent implements OnInit {
     if (event.origin.includes('stackblitz')) {
       if (event.data.header === HubEvents.Handshake) {
         this.port = event.source;
+        if (this.isConnected) {
+          this.subjects.forEach(subject => subject.clean());
+          this.subscription.clean();
+        }
         this.isConnected = true;
       } else if (event.data.header === HubEvents.Next) {
-        this.subscription.push({type: HubEvents.Next, value: event.data.value});
+        this.subscription.push({
+          type: HubEvents.Next,
+          value: event.data.value
+        });
       } else if (event.data.header === HubEvents.Error) {
-        this.subscription.push({type: HubEvents.Error, value: event.data.value});
+        this.subscription.push({
+          type: HubEvents.Error,
+          value: event.data.value
+        });
       } else if (event.data.header === HubEvents.Complete) {
-        this.subscription.push({type: HubEvents.Complete, value: event.data.value});
+        this.subscription.push({
+          type: HubEvents.Complete,
+          value: event.data.value
+        });
       }
     }
   }

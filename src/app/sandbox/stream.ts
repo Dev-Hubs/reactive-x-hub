@@ -1,24 +1,27 @@
+interface StreamEvent {
+  type: string;
+  value: any;
+}
+interface IStream {
+  history: StreamEvent[];
+  id: number;
+}
 
-  interface StreamEvent {
-    type: string;
-    value: any;
-
+export class Stream implements IStream {
+  history = [];
+  isComplete = false;
+  isError = false;
+  constructor(public id) {}
+  push(streamEvent: StreamEvent) {
+    this.history.push(streamEvent);
   }
-  interface IStream {
-    history: StreamEvent[];
-    id: number;
-  }
 
-  export class Stream implements IStream {
-    history = [];
-    isComplete = false;
-    isError = false;
-    constructor(public id) {}
-    push(streamEvent: StreamEvent) {
-      this.history.push(streamEvent);
-    }
-
-    get isActive() {
-      return !this.isComplete && !this.isError;
-    }
+  clean() {
+    this.history.length = 0;
+    this.isComplete = false;
+    this.isError = false;
   }
+  get isActive() {
+    return !this.isComplete && !this.isError;
+  }
+}

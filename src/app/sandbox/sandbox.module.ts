@@ -2,8 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SandboxComponent } from './sandbox.component';
 import { RangePipe } from '../pipes/range.pipe';
-import { MatButtonModule, MatProgressBarModule, MatStepperModule, MatInputModule, MatCardModule } from '@angular/material';
-import {MatIconModule} from '@angular/material/icon';
+import {
+  MatButtonModule,
+  MatProgressBarModule,
+  MatStepperModule,
+  MatInputModule,
+  MatCardModule,
+  MatDividerModule
+} from '@angular/material';
+import { MatIconModule } from '@angular/material/icon';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -12,9 +20,10 @@ import {MatIconModule} from '@angular/material/icon';
     MatProgressBarModule,
     MatStepperModule,
     MatInputModule,
-    MatCardModule
+    MatCardModule,
+    MatDividerModule
   ],
   declarations: [SandboxComponent, RangePipe],
   exports: [SandboxComponent]
 })
-export class SandboxModule { }
+export class SandboxModule {}

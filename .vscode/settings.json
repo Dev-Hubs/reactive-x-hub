@@ -1,6 +1,7 @@
 {
-    "tslint.autoFixOnSave": true,
-    "typescript.referencesCodeLens.enabled": true,
-    "typescript.implementationsCodeLens.enabled": true,
-    "html.format.wrapAttributes": "force-aligned"
+  "tslint.autoFixOnSave": true,
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.implementationsCodeLens.enabled": true,
+  "html.format.wrapAttributes": "force-aligned",
+  "editor.formatOnSave": true
 }
