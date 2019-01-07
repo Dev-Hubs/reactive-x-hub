@@ -1,0 +1,140 @@
+import { fromEvent, Observable, merge } from 'rxjs';
+import { filter, takeUntil, map, mergeMap, mapTo } from 'rxjs/operators';
+
+enum HubEvents {
+  Handshake = 'HANDSHAKE',
+  Next = 'NEXT',
+  Complete = 'COMPLETE',
+  Error = 'ERROR'
+}
+
+interface HubMessage extends MessageEvent {
+  data: {
+    value: any,
+    header: HubEvents,
+    id: number
+  }
+}
+
+
+
+
+export class ReactiveXHub {
+  private static instance: ReactiveXHub = null;
+  private constructor() {
+    window.top.postMessage({ header: HubEvents.Handshake }, '*')
+  }
+
+  public static getInstance() {
+    return this.instance || (this.instance = new ReactiveXHub());
+  }
+
+  private append(text) {
+    var ul = document.getElementById("list");
+    var li = document.createElement("li");
+    li.appendChild(document.createTextNode(JSON.stringify(text)));
+    ul.appendChild(li);
+  }
+
+  private filterEvent(event: HubMessage, type, id) {
+    return event.data && event.data.header === type && event.data.id === id;
+  }
+
+  private mapEvent(event: HubMessage) {
+    return event.data ? event.data.value : null
+  }
+
+  private onNext(id: number) {
+    return fromEvent(window, 'message').pipe(
+      filter((event: HubMessage) =>
+        this.filterEvent(event, HubEvents.Next, id)),
+      map(this.mapEvent)
+    );
+  }
+
+  private onComplete(id: number) {
+    return fromEvent(window, 'message').pipe(
+      filter((event: HubMessage) =>
+        this.filterEvent(event, HubEvents.Complete, id)),
+      map(this.mapEvent)
+    );
+  }
+
+  private onError(id: number) {
+    return fromEvent(window, 'message').pipe(
+      filter((event: HubMessage) =>
+        this.filterEvent(event, HubEvents.Error, id)),
+      map(this.mapEvent)
+    );
+  }
+
+  public observe(id: number): Observable<any> {
+    return new Observable(observer => {
+      this.onNext(id).subscribe(data => {
+        this.append(`${id} <<< NEXT <<< ${data}`)
+        observer.next(data)
+      });
+      this.onComplete(id).subscribe(() => {
+        this.append(`${id} <<< COMPLETE`)
+        observer.complete()
+      });
+      this.onError(id).subscribe(err => {
+        this.append(`${id} <<< ERROR <<< ${err}`)
+        observer.error(err)
+      });
+    })
+  }
+
+  connect() {
+    return {
+      next: (data) => {
+        this.append(`${data}`)
+        window.top.postMessage({ header: HubEvents.Next, value: data }, '*')
+      },
+      error: (err = 'error') => {
+        window.top.postMessage({ header: HubEvents.Error, value: err }, '*')
+        this.append(err)
+      },
+      complete: () => {
+        window.top.postMessage({ header: HubEvents.Complete }, '*')
+        this.append('complete')
+      },
+    }
+  }
+
+}
+
+
+// export const observe = (id: number): Observable<any> => {
+//   let onNext = fromEvent(window, 'message').pipe(
+//     filter((event: Event) =>
+//       event['data'] === `${Events.Next}:${id}`)
+//   );
+//   let onComplete = fromEvent(window, 'message').pipe(
+//     filter((event: Event) =>
+//       event['data'] === `${Events.Complete}:${id}`)
+//   );
+//   let onError = fromEvent(window, 'message').pipe(
+//     filter((event: Event) =>
+//       event['data'] === `${Events.Error}:${id}`),
+//     map(_ => throwError)
+//   );
+//   return merge(onNext, onError).
+//     pipe(
+//       takeUntil(onComplete)
+//     )
+// }
+
+// export const connect = () => {
+//   return {
+//     onNext: (data) => {
+//       console.log(".onNext:", data)
+//     },
+//     onError: (err) => {
+//       console.log(".onError:", err.message)
+//     },
+//     onCompleted: () => {
+//       console.log(".onCompleted!")
+//     },
+//   }
+// }

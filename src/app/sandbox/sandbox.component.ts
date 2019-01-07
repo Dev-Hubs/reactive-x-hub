@@ -14,6 +14,11 @@ import { HubMessage } from './interfaces';
 import { HubEvents } from './enums';
 import { Stream } from './stream';
 import { Subject } from 'rxjs';
+import { projection } from '@angular/core/src/render3';
+import {
+  StackblitzSdkService,
+  CustomProject
+} from 'src/app/sandbox/stackblitz-sdk.service';
 
 @Component({
   selector: 'app-sandbox',
@@ -23,6 +28,7 @@ import { Subject } from 'rxjs';
 export class SandboxComponent implements OnInit {
   @ViewChild('iframe') iframe;
   @Input() sourceURL;
+  @Input() project;
   @Input() streams: number;
   subjects: Stream[] = [];
   subscription: Stream;
@@ -30,12 +36,16 @@ export class SandboxComponent implements OnInit {
   port: any = null;
   isConnected = false;
 
-  constructor(private sanitizer: DomSanitizer) {}
+  constructor(
+    private sdk: StackblitzSdkService,
+    private sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit() {
-    this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(
-      this.sourceURL
-    );
+    this.sdk.embed(this.iframe.nativeElement, this.project);
+    // this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(
+    //   this.sourceURL
+    // );
     for (let i = 0; i < this.streams; i++) {
       this.subjects.push(new Stream(i));
     }

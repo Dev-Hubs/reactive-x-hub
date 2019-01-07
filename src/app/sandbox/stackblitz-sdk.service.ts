@@ -16,6 +16,10 @@ export class StackblitzSdkService {
   constructor() {}
 
   embed(element, project: CustomProject) {
-    sdk.embedProject(element, { ...project, template: 'angular-cli' });
+    sdk.embedProject(element, {
+      ...project,
+      template: 'typescript',
+      dependencies: { rxjs: 'latest' }
+    });
   }
 }
