@@ -1,14 +1,26 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>Map</mat-card-title>
-    <mat-card-subtitle>Transformation</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>Transform by applying a transforming function</p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button> <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
-
+<br />
+<div class="container-fluid">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Map</mat-card-title>
+      <mat-card-subtitle
+        >public map(project: function(value: T, index: number): R, thisArg:
+        any): Observable[R</mat-card-subtitle
+      >
+    </mat-card-header>
+    <mat-card-content>
+      <p>
+        Applies a given project function to each value emitted by the source
+        Observable, and emits the resulting values as an Observable.
+      </p>
+      <i
+        >Like Array.prototype.map(), it passes each source value through a
+        transformation function to get corresponding output values.</i
+      >
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button> <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
 <app-sandbox [project]="project" [streams]="2"></app-sandbox>

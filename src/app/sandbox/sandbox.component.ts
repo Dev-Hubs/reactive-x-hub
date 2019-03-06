@@ -53,25 +53,9 @@ export class SandboxComponent implements OnInit {
     this.subscription = new Stream(-1);
   }
 
-  onClick() {
-    ///
-  }
-
-  onNext(id, value = 'a', type = HubEvents.Next) {
+  onClick(type: HubEvents, id, value = null) {
     this.subjects[id].push({ value, type });
     this.port.postMessage({ header: type, id, value }, '*');
-  }
-
-  onComplete(id, value, type = HubEvents.Complete) {
-    this.subjects[id].push({ value, type });
-    this.port.postMessage({ header: type, id, value }, '*');
-    this.subjects[id].isComplete = true;
-  }
-
-  onError(id, value = 'b', type = HubEvents.Error) {
-    this.subjects[id].push({ value, type });
-    this.port.postMessage({ header: type, id, value }, '*');
-    this.subjects[id].isError = true;
   }
 
   @HostListener('window:message', ['$event'])
