@@ -1,6 +1,7 @@
 export enum HubEvents {
-    Handshake = 'HANDSHAKE',
-    Next = 'NEXT',
-    Complete = 'COMPLETE',
-    Error = 'ERROR'
-  }
+  Handshake = 'HANDSHAKE',
+  Add = 'ADD',
+  Next = 'NEXT',
+  Complete = 'COMPLETE',
+  Error = 'ERROR'
+}

@@ -2,5 +2,8 @@
   "typescript.referencesCodeLens.enabled": true,
   "typescript.implementationsCodeLens.enabled": true,
   "editor.formatOnSave": true,
-  "html.format.enable": false
+  "html.format.enable": false,
+  "files.associations": {
+    "*.ts.text": "typescript"
+  }
 }

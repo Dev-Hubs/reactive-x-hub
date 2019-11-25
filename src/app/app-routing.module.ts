@@ -5,9 +5,9 @@ import { OperatorsComponent } from './operators/operators.component';
 import { MapComponent } from './operators/map/map.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'operators', component: OperatorsComponent},
-  {path: 'operators/map', component: MapComponent},
+  { path: '', redirectTo: 'operators/map', pathMatch: 'full' },
+  { path: 'operators', component: OperatorsComponent },
+  { path: 'operators/map', component: MapComponent }
 
   // {
   //     path: 'operators',
@@ -15,10 +15,10 @@ const routes: Routes = [
   //       { path: 'operators', loadChildren: './operators/operators-routing.module#OperatorsRoutingModule' }
   //     ]
   //   }
-  ];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

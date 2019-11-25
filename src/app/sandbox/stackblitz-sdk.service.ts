@@ -21,7 +21,14 @@ export class StackblitzSdkService {
       {
         ...project,
         template: 'typescript',
-        dependencies: { rxjs: 'latest' }
+        dependencies: { rxjs: 'latest' },
+        settings: {
+          compile: {
+            trigger: 'auto',
+            action: 'refresh',
+            clearConsole: false
+          }
+        }
       },
       { height: 800 }
     );

@@ -19,6 +19,7 @@ import {
   StackblitzSdkService,
   CustomProject
 } from 'src/app/sandbox/stackblitz-sdk.service';
+import { JSONStateMatch } from './models';
 
 @Component({
   selector: 'app-sandbox',
@@ -27,15 +28,13 @@ import {
 })
 export class SandboxComponent implements OnInit {
   @ViewChild('iframe') iframe;
-  @Input() sourceURL;
   @Input() project;
-  @Input() streams: number;
   subjects: Stream[] = [];
   subscription: Stream;
-  safeURL: SafeResourceUrl;
   port: any = null;
   isConnected = false;
 
+  matcher = new JSONStateMatch();
   constructor(
     private sdk: StackblitzSdkService,
     private sanitizer: DomSanitizer
@@ -43,13 +42,7 @@ export class SandboxComponent implements OnInit {
 
   ngOnInit() {
     this.sdk.embed(this.iframe.nativeElement, this.project);
-    // this.safeURL = this.sanitizer.bypassSecurityTrustResourceUrl(
-    //   this.sourceURL
-    // );
-    for (let i = 0; i < this.streams; i++) {
-      this.subjects.push(new Stream(i));
-    }
-
+    this.subjects = [];
     this.subscription = new Stream(-1);
   }
 
@@ -61,13 +54,17 @@ export class SandboxComponent implements OnInit {
   @HostListener('window:message', ['$event'])
   onmessage(event: HubMessage) {
     if (event.origin.includes('stackblitz')) {
+      console.log(event);
       if (event.data.header === HubEvents.Handshake) {
         this.port = event.source;
         if (this.isConnected) {
           this.subjects.forEach(subject => subject.clean());
+          this.subjects.length = 0;
           this.subscription.clean();
         }
         this.isConnected = true;
+      } else if (event.data.header === HubEvents.Add) {
+        this.subjects.push(new Stream(event.data.value));
       } else if (event.data.header === HubEvents.Next) {
         this.subscription.push({
           type: HubEvents.Next,
