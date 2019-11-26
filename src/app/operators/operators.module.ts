@@ -6,12 +6,10 @@ import { OperatorsRoutingModule } from './operators-routing.module';
 import { MapComponent } from './map/map.component';
 import { OperatorsComponent } from './operators.component';
 import { SandboxModule } from '../sandbox/sandbox.module';
-import {
-  MatCardModule,
-  MatButtonModule,
-  MatDividerModule,
-  MatTableModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   imports: [
