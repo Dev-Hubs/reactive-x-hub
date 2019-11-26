@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import sdk from '@stackblitz/sdk';
 import { Project } from '@stackblitz/sdk/typings/interfaces';
-import { projection } from '@angular/core/src/render3';
 export interface CustomProject {
   files: { [path: string]: string };
   title: string;

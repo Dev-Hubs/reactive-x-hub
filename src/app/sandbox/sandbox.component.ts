@@ -5,21 +5,14 @@ import {
   ViewChild,
   HostListener
 } from '@angular/core';
-import {
-  DomSanitizer,
-  SafeUrl,
-  SafeResourceUrl
-} from '@angular/platform-browser';
 import { HubMessage } from './interfaces';
 import { HubEvents } from './enums';
 import { Stream } from './stream';
-import { Subject } from 'rxjs';
-import { projection } from '@angular/core/src/render3';
+
 import {
   StackblitzSdkService,
   CustomProject
 } from 'src/app/sandbox/stackblitz-sdk.service';
-import { JSONStateMatch } from './models';
 
 @Component({
   selector: 'app-sandbox',
@@ -27,18 +20,14 @@ import { JSONStateMatch } from './models';
   styleUrls: ['./sandbox.component.scss']
 })
 export class SandboxComponent implements OnInit {
-  @ViewChild('iframe') iframe;
+  @ViewChild('iframe', { static: true }) iframe;
   @Input() project;
   subjects: Stream[] = [];
   subscription: Stream;
   port: any = null;
   isConnected = false;
 
-  matcher = new JSONStateMatch();
-  constructor(
-    private sdk: StackblitzSdkService,
-    private sanitizer: DomSanitizer
-  ) {}
+  constructor(private sdk: StackblitzSdkService) {}
 
   ngOnInit() {
     this.sdk.embed(this.iframe.nativeElement, this.project);
