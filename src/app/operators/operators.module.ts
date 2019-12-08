@@ -10,7 +10,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { IndexComponent } from './index/index.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -20,8 +22,10 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatDividerModule,
     MatTableModule,
-    CdkTableModule
+    CdkTableModule,
+    MatSidenavModule,
+    MatListModule
   ],
-  declarations: [MapComponent, OperatorsComponent]
+  declarations: [MapComponent, OperatorsComponent, IndexComponent]
 })
 export class OperatorsModule {}
