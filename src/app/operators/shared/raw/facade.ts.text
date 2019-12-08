@@ -9,9 +9,9 @@ class Facade {
     return this.instance || (this.instance = new Facade());
   }
 
-  public observe<T>(id: number): Observable<T extends undefined ? string : T> {
+  public observe(id: number) {
     window.top.postMessage({ header: EventType.Add, value: id }, '*');
-    return new Observable<T extends undefined ? string : T>(observer => {
+    return new Observable<string>(observer => {
       bridge.onNext(id).subscribe(data => {
         observer.next(data);
       });
