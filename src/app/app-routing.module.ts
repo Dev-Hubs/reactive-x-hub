@@ -8,6 +8,13 @@ const routes: Routes = [
     path: 'operators',
     loadChildren: () =>
       import('./operators/operators.module').then(m => m.OperatorsModule)
+  },
+  {
+    path: 'decision-tree',
+    loadChildren: () =>
+      import('./modules/decision-tree/decision-tree.module').then(
+        m => m.DecisionTreeModule
+      )
   }
 ];
 
