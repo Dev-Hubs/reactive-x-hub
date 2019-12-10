@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { IndexComponent } from './index/index.component';
+import { CombinationCombineAllComponent } from './combination-combine-all/combination-combine-all.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -26,6 +27,6 @@ import { IndexComponent } from './index/index.component';
     MatSidenavModule,
     MatListModule
   ],
-  declarations: [MapComponent, OperatorsComponent, IndexComponent]
+  declarations: [MapComponent, OperatorsComponent, IndexComponent, CombinationCombineAllComponent]
 })
 export class OperatorsModule {}
