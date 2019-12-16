@@ -53,10 +53,36 @@ export const routes: Routes = [
         ]
       },
       {
+        path: 'filtering',
+        children: [
+          {
+            path: 'audit',
+            component: IndexComponent
+          }
+        ]
+      },
+      {
+        path: 'multicasting',
+        children: [
+          {
+            path: 'multicast',
+            component: IndexComponent
+          }
+        ]
+      },
+      {
         path: 'transformation',
-
         children: [
           { path: 'map', component: MapComponent, data: { name: 'map' } }
+        ]
+      },
+      {
+        path: 'utility',
+        children: [
+          {
+            path: 'delay',
+            component: IndexComponent
+          }
         ]
       }
     ]

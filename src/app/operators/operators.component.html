@@ -10,7 +10,7 @@
 
     <mat-nav-list *ngFor="let category of route.children" class="category">
       <a mat-list-item routerLink="/category.path" routerLinkActive="active">{{
-        category.data ? category.data.name : (category.path | titlecase)
+        category?.data?.name || (category.path | titlecase)
       }}</a>
 
       <mat-nav-list dense *ngFor="let operator of category.children">
@@ -18,9 +18,7 @@
           mat-list-item
           [routerLink]="category.path + '/' + operator.path"
           routerLinkActive="active"
-          >{{
-            operator.data ? operator.data.name : (operator.path | camelize)
-          }}</a
+          >{{ operator?.data?.name || (operator.path | camelize) }}</a
         >
       </mat-nav-list>
     </mat-nav-list>
