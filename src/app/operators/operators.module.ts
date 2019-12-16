@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CdkTableModule } from '@angular/cdk/table';
 
 import { OperatorsRoutingModule } from './operators-routing.module';
-import { MapComponent } from './map/map.component';
+import { MapComponent } from './transformation/map/map.component';
 import { OperatorsComponent } from './operators.component';
 import { SandboxModule } from '../sandbox/sandbox.module';
 import { MatButtonModule } from '@angular/material/button';
@@ -13,7 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { IndexComponent } from './index/index.component';
-import { CombinationCombineAllComponent } from './combination-combine-all/combination-combine-all.component';
+import { CombinationCombineAllComponent } from './combination/combine-all/combine-all.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -27,6 +27,11 @@ import { CombinationCombineAllComponent } from './combination-combine-all/combin
     MatSidenavModule,
     MatListModule
   ],
-  declarations: [MapComponent, OperatorsComponent, IndexComponent, CombinationCombineAllComponent]
+  declarations: [
+    MapComponent,
+    OperatorsComponent,
+    IndexComponent,
+    CombinationCombineAllComponent
+  ]
 })
 export class OperatorsModule {}

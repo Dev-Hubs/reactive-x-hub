@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { OperatorsComponent } from './operators.component';
-import { MapComponent } from './map/map.component';
+import { MapComponent } from './transformation/map/map.component';
 import { IndexComponent } from './index/index.component';
-import { CombinationCombineAllComponent } from './combination-combine-all/combination-combine-all.component';
+import { CombinationCombineAllComponent } from './combination/combine-all/combine-all.component';
 
 export const routes: Routes = [
   {

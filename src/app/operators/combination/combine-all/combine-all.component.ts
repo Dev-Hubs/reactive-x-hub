@@ -1,14 +1,12 @@
-import index from 'raw-loader!./raw/map.ts.text';
-
+import index from 'raw-loader!./raw/combine-all.ts.text';
 import { Component, OnInit } from '@angular/core';
 import { CustomProject } from 'src/app/sandbox/stackblitz-sdk.service';
 
 @Component({
-  selector: 'app-map',
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  selector: 'app-combination-combine-all',
+  templateUrl: './combine-all.component.html'
 })
-export class MapComponent implements OnInit {
+export class CombinationCombineAllComponent implements OnInit {
   project: CustomProject = {
     files: {
       'index.ts': index
@@ -17,6 +15,7 @@ export class MapComponent implements OnInit {
     description: 'map desc',
     tags: []
   };
+  constructor() {}
 
   ngOnInit() {}
 }
