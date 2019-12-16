@@ -13,18 +13,48 @@ export const routes: Routes = [
     children: [
       {
         path: 'combination',
-        data: { name: 'Combination' },
+
         children: [
           {
             path: 'combine-all',
-            component: CombinationCombineAllComponent,
-            data: { name: 'combineAll' }
+            component: CombinationCombineAllComponent
+          }
+        ]
+      },
+      {
+        path: 'conditional',
+
+        children: [
+          {
+            path: 'default-if-empty',
+            component: IndexComponent
+          }
+        ]
+      },
+      {
+        path: 'creation',
+
+        children: [
+          {
+            path: 'ajax',
+            component: IndexComponent
+          }
+        ]
+      },
+      {
+        path: 'error-handling',
+        data: { name: 'Error Handling' },
+        children: [
+          {
+            path: 'catch',
+            data: { name: 'catch/catchError' },
+            component: IndexComponent
           }
         ]
       },
       {
         path: 'transformation',
-        data: { name: 'Transformation' },
+
         children: [
           { path: 'map', component: MapComponent, data: { name: 'map' } }
         ]

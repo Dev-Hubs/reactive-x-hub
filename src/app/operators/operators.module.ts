@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
 import { CdkTableModule } from '@angular/cdk/table';
 
 import { OperatorsRoutingModule } from './operators-routing.module';
@@ -14,6 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { IndexComponent } from './index/index.component';
 import { CombinationCombineAllComponent } from './combination/combine-all/combine-all.component';
+import { CamelizePipe } from '../pipes/camel-case.pipe';
 @NgModule({
   imports: [
     CommonModule,
@@ -28,6 +29,8 @@ import { CombinationCombineAllComponent } from './combination/combine-all/combin
     MatListModule
   ],
   declarations: [
+    CamelizePipe,
+
     MapComponent,
     OperatorsComponent,
     IndexComponent,
