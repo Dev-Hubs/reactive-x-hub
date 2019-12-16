@@ -18,6 +18,54 @@ export const routes: Routes = [
           {
             path: 'combine-all',
             component: CombinationCombineAllComponent
+          },
+          {
+            path: 'combine-latest',
+            component: IndexComponent
+          },
+          {
+            path: 'concat',
+            component: IndexComponent
+          },
+          {
+            path: 'concat-all',
+            component: IndexComponent
+          },
+          {
+            path: 'end-with',
+            component: IndexComponent
+          },
+          {
+            path: 'fork-join',
+            component: IndexComponent
+          },
+          {
+            path: 'merge',
+            component: IndexComponent
+          },
+          {
+            path: 'merge-all',
+            component: IndexComponent
+          },
+          {
+            path: 'pairwise',
+            component: IndexComponent
+          },
+          {
+            path: 'race',
+            component: IndexComponent
+          },
+          {
+            path: 'start-with',
+            component: IndexComponent
+          },
+          {
+            path: 'with-latest-from',
+            component: IndexComponent
+          },
+          {
+            path: 'zip',
+            component: IndexComponent
           }
         ]
       },

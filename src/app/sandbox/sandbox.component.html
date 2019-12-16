@@ -87,11 +87,5 @@
     [mode]="isConnected ? 'determined' : 'indeterminate'"
     value="100"
   ></mat-progress-bar>
-  <iframe
-    [src]="safeURL"
-    style="width:100%;height:600px"
-    id="stackblitz"
-    #iframe
-  >
-  </iframe>
+  <div #iframe></div>
 </div>

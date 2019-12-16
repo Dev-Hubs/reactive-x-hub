@@ -4,3 +4,6 @@
 // .stream-event {
 //   position: absolute;
 // }
+::ng-deep iframe {
+  border: none;
+}
