@@ -4,15 +4,21 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="!(isHandset$ | async)"
+    *ngFor="let route of routes"
   >
     <!-- <mat-toolbar><mat-icon>menu</mat-icon></mat-toolbar> -->
-    <mat-nav-list>
-      <a mat-list-item routerLink="/operators" routerLinkActive="active"
-        >Operators</a
-      >
-      <mat-nav-list dense>
-        <a mat-list-item routerLink="/operators/map" routerLinkActive="active"
-          >Map</a
+
+    <mat-nav-list *ngFor="let category of route.children">
+      <a mat-list-item routerLink="/operators" routerLinkActive="active">{{
+        category.data.name
+      }}</a>
+
+      <mat-nav-list dense *ngFor="let operator of category.children">
+        <a
+          mat-list-item
+          [routerLink]="category.path + '/' + operator.path"
+          routerLinkActive="active"
+          >{{ operator.data.name }}</a
         >
       </mat-nav-list>
     </mat-nav-list>

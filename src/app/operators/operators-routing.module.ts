@@ -3,14 +3,32 @@ import { Routes, RouterModule } from '@angular/router';
 import { OperatorsComponent } from './operators.component';
 import { MapComponent } from './map/map.component';
 import { IndexComponent } from './index/index.component';
+import { CombinationCombineAllComponent } from './combination-combine-all/combination-combine-all.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     component: OperatorsComponent,
+    data: { name: 'index' },
     children: [
-      { path: '', component: IndexComponent },
-      { path: 'map', component: MapComponent }
+      {
+        path: 'combination',
+        data: { name: 'Combination' },
+        children: [
+          {
+            path: 'combine-all',
+            component: CombinationCombineAllComponent,
+            data: { name: 'combineAll' }
+          }
+        ]
+      },
+      {
+        path: 'transformation',
+        data: { name: 'Transformation' },
+        children: [
+          { path: 'map', component: MapComponent, data: { name: 'map' } }
+        ]
+      }
     ]
   }
 ];

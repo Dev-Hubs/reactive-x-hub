@@ -1,5 +1,4 @@
-declare var require: any;
-const index = require('!raw-loader!./raw/map.ts.text').default;
+import index from 'raw-loader!./raw/map.ts.text';
 
 import { Component, OnInit } from '@angular/core';
 import { CustomProject } from 'src/app/sandbox/stackblitz-sdk.service';
