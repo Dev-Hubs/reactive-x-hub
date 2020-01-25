@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { bridge } from './bridge';
 import { EventType } from './event';
 export const observer = {
@@ -13,4 +15,8 @@ export const observer = {
     window.top.postMessage({ header: EventType.Complete }, '*');
     bridge.append('complete');
   }
+};
+
+export const handleOperator = () => <T>(source: Observable<T>) => {
+  return source.pipe(tap(observer));
 };
