@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
@@ -7,7 +7,9 @@ const routes: Routes = [
   {
     path: 'operators',
     loadChildren: () =>
-      import('./operators/operators.module').then(m => m.OperatorsModule)
+      import('./modules/operators/operators.module').then(
+        m => m.OperatorsModule
+      )
   },
   {
     path: 'decision-tree',
@@ -19,7 +21,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}

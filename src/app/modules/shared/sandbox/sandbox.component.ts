@@ -1,18 +1,14 @@
 import {
   Component,
-  OnInit,
+  HostListener,
   Input,
-  ViewChild,
-  HostListener
+  OnInit,
+  ViewChild
 } from '@angular/core';
-import { HubMessage } from './interfaces';
 import { HubEvents } from './enums';
+import { HubMessage } from './interfaces';
+import { StackblitzSdkService } from './stackblitz-sdk.service';
 import { Stream } from './stream';
-
-import {
-  StackblitzSdkService,
-  CustomProject
-} from 'src/app/sandbox/stackblitz-sdk.service';
 
 @Component({
   selector: 'app-sandbox',

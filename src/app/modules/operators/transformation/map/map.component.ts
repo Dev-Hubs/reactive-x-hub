@@ -1,7 +1,6 @@
-import index from 'raw-loader!./raw/map.ts.text';
-
 import { Component, OnInit } from '@angular/core';
-import { CustomProject } from 'src/app/sandbox/stackblitz-sdk.service';
+import index from 'raw-loader!./raw/map.ts.text';
+import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.service';
 
 @Component({
   selector: 'app-map',

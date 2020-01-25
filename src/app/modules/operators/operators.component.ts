@@ -10,5 +10,7 @@ export class OperatorsComponent implements OnInit {
   public routes = routes;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.routes);
+  }
 }

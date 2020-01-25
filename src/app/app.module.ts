@@ -1,34 +1,27 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { LayoutModule } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavigationComponent } from './components/navigation/navigation.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { CustomMaterialModule } from './material.module';
-import { SandboxComponent } from './sandbox/sandbox.component';
-import { SanitizePipe } from './pipes/sanitize.pipe';
-
-import { OperatorsModule } from './operators/operators.module';
-import { SandboxModule } from './sandbox/sandbox.module';
 import { HomeComponent } from './components/home/home.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+import { OperatorsModule } from './modules/operators/operators.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavigationComponent,
-    SanitizePipe,
-    HomeComponent
-  ],
+  declarations: [AppComponent, NavigationComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
-    CustomMaterialModule,
     OperatorsModule,
-    SandboxModule
+    MatIconModule,
+    MatToolbarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
