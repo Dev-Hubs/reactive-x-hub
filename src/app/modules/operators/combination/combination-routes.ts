@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { CombinationComponent } from './combination.component';
 import { CombineAllComponent } from './combine-all/combine-all.component';
+import { MergeComponent } from './merge/merge.component';
 
 export const combinationRoutes: Routes = [
   {
@@ -34,7 +35,7 @@ export const combinationRoutes: Routes = [
   },
   {
     path: 'merge',
-    redirectTo: '404'
+    component: MergeComponent
   },
   {
     path: 'merge-all',

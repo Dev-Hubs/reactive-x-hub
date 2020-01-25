@@ -17,7 +17,10 @@
       >
 
       <ng-container *ngFor="let operator of category.children">
-        <mat-nav-list dense *ngIf="operator.path.length">
+        <mat-nav-list
+          dense
+          *ngIf="operator.path.length && !operator.redirectTo"
+        >
           <a
             mat-list-item
             [routerLink]="category.path + '/' + operator.path"

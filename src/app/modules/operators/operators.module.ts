@@ -13,6 +13,7 @@ import { CombineAllComponent } from './combination/combine-all/combine-all.compo
 import { OperatorsRoutingModule } from './operators-routing.module';
 import { OperatorsComponent } from './operators.component';
 import { MapComponent } from './transformation/map/map.component';
+import { MergeComponent } from './combination/merge/merge.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { MapComponent } from './transformation/map/map.component';
     MapComponent,
     OperatorsComponent,
     CombineAllComponent,
-    CombinationComponent
+    CombinationComponent,
+    MergeComponent
   ]
 })
 export class OperatorsModule {}
