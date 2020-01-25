@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { CombinationComponent } from './combination.component';
-import { CombineAllComponent } from './combine-all/combine-all.component';
-import { MergeComponent } from './merge/merge.component';
+
 
 export const combinationRoutes: Routes = [
   {
@@ -9,10 +8,7 @@ export const combinationRoutes: Routes = [
     pathMatch: 'full',
     component: CombinationComponent
   },
-  {
-    path: 'combine-all',
-    component: CombineAllComponent
-  },
+
   {
     path: 'combine-latest',
     redirectTo: '404'
@@ -33,10 +29,7 @@ export const combinationRoutes: Routes = [
     path: 'fork-join',
     redirectTo: '404'
   },
-  {
-    path: 'merge',
-    component: MergeComponent
-  },
+
   {
     path: 'merge-all',
     redirectTo: '404'
@@ -57,8 +50,5 @@ export const combinationRoutes: Routes = [
     path: 'with-latest-from',
     redirectTo: '404'
   },
-  {
-    path: 'zip',
-    redirectTo: '404'
-  }
+
 ];

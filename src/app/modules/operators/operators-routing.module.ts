@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { combinationRoutes } from './combination/combination-routes';
+import { joinCreationRoutes } from './join-creation/join-creation-routes';
+import { joinRoutes } from './join/join-routes';
 import { OperatorsComponent } from './operators.component';
-import { MapComponent } from './transformation/map/map.component';
+import { transformationRoutes } from './transformation/transformation-routes';
 
 export const routes: Routes = [
   {
@@ -12,71 +14,19 @@ export const routes: Routes = [
     children: [
       {
         path: 'combination',
+
         children: combinationRoutes
       },
       {
-        path: 'conditional',
-
-        children: [
-          {
-            path: 'default-if-empty',
-            redirectTo: '404'
-          }
-        ]
-      },
-      {
-        path: 'creation',
-
-        children: [
-          {
-            path: 'ajax',
-            redirectTo: '404'
-          }
-        ]
-      },
-      {
-        path: 'error-handling',
-        data: { name: 'Error Handling' },
-        children: [
-          {
-            path: 'catch',
-            data: { name: 'catch/catchError' },
-            redirectTo: '404'
-          }
-        ]
-      },
-      {
-        path: 'filtering',
-        children: [
-          {
-            path: 'audit',
-            redirectTo: '404'
-          }
-        ]
-      },
-      {
-        path: 'multicasting',
-        children: [
-          {
-            path: 'multicast',
-            redirectTo: '404'
-          }
-        ]
-      },
-      {
         path: 'transformation',
-        children: [
-          { path: 'map', component: MapComponent, data: { name: 'map' } }
-        ]
+
+        children: transformationRoutes
       },
+      { path: 'join', children: joinRoutes },
       {
-        path: 'utility',
-        children: [
-          {
-            path: 'delay',
-            redirectTo: '404'
-          }
-        ]
+        path: 'join-creation',
+
+        children: joinCreationRoutes
       }
     ]
   }

@@ -9,11 +9,15 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from '../shared/shared.module';
 import { CombinationComponent } from './combination/combination.component';
-import { CombineAllComponent } from './combination/combine-all/combine-all.component';
+import { JoinCreationComponent } from './join-creation/join-creation.component';
+import { MergeComponent } from './join-creation/merge/merge.component';
+import { ZipComponent } from './join-creation/zip/zip.component';
+import { CombineAllComponent } from './join/combine-all/combine-all.component';
+import { JoinComponent } from './join/join.component';
 import { OperatorsRoutingModule } from './operators-routing.module';
 import { OperatorsComponent } from './operators.component';
 import { MapComponent } from './transformation/map/map.component';
-import { MergeComponent } from './combination/merge/merge.component';
+import { TransformationComponent } from './transformation/transformation.component';
 
 @NgModule({
   imports: [
@@ -33,7 +37,11 @@ import { MergeComponent } from './combination/merge/merge.component';
     OperatorsComponent,
     CombineAllComponent,
     CombinationComponent,
-    MergeComponent
+    MergeComponent,
+    ZipComponent,
+    JoinComponent,
+    JoinCreationComponent,
+    TransformationComponent
   ]
 })
 export class OperatorsModule {}

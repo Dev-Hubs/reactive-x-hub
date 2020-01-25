@@ -1,9 +1,8 @@
 import { Routes } from '@angular/router';
 import { MapComponent } from './map/map.component';
+import { TransformationComponent } from './transformation.component';
 
 export const transformationRoutes: Routes = [
-  {
-    path: 'transformation',
-    children: [{ path: 'map', component: MapComponent, data: { name: 'map' } }]
-  }
+  { path: '', pathMatch: 'full', component: TransformationComponent },
+  { path: 'map', component: MapComponent }
 ];
