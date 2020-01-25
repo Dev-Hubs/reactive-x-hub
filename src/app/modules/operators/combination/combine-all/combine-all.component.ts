@@ -6,7 +6,7 @@ import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.ser
   selector: 'app-combination-combine-all',
   templateUrl: './combine-all.component.html'
 })
-export class CombinationCombineAllComponent implements OnInit {
+export class CombineAllComponent implements OnInit {
   project: CustomProject = {
     files: {
       'index.ts': index

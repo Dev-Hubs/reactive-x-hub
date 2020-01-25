@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { CombinationComponent } from './combination.component';
-import { CombinationCombineAllComponent } from './combine-all/combine-all.component';
+import { CombineAllComponent } from './combine-all/combine-all.component';
 
 export const combinationRoutes: Routes = [
   {
@@ -10,7 +10,7 @@ export const combinationRoutes: Routes = [
   },
   {
     path: 'combine-all',
-    component: CombinationCombineAllComponent
+    component: CombineAllComponent
   },
   {
     path: 'combine-latest',

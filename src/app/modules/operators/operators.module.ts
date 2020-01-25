@@ -9,7 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from '../shared/shared.module';
 import { CombinationComponent } from './combination/combination.component';
-import { CombinationCombineAllComponent } from './combination/combine-all/combine-all.component';
+import { CombineAllComponent } from './combination/combine-all/combine-all.component';
 import { OperatorsRoutingModule } from './operators-routing.module';
 import { OperatorsComponent } from './operators.component';
 import { MapComponent } from './transformation/map/map.component';
@@ -30,7 +30,7 @@ import { MapComponent } from './transformation/map/map.component';
   declarations: [
     MapComponent,
     OperatorsComponent,
-    CombinationCombineAllComponent,
+    CombineAllComponent,
     CombinationComponent
   ]
 })
