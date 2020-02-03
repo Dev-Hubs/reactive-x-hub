@@ -23,6 +23,7 @@ export class SandboxComponent implements OnInit {
   port: any = null;
   isConnected = false;
 
+  public HubEvents = HubEvents;
   constructor(private sdk: StackblitzSdkService) {}
 
   ngOnInit() {
