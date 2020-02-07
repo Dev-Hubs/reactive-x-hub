@@ -18,6 +18,7 @@ import { OperatorsRoutingModule } from './operators-routing.module';
 import { OperatorsComponent } from './operators.component';
 import { MapComponent } from './transformation/map/map.component';
 import { TransformationComponent } from './transformation/transformation.component';
+import { CombineLatestComponent } from './join-creation/combine-latest/combine-latest.component';
 
 @NgModule({
   imports: [
@@ -41,7 +42,8 @@ import { TransformationComponent } from './transformation/transformation.compone
     ZipComponent,
     JoinComponent,
     JoinCreationComponent,
-    TransformationComponent
+    TransformationComponent,
+    CombineLatestComponent
   ]
 })
 export class OperatorsModule {}
