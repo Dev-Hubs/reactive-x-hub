@@ -1,11 +1,5 @@
 <mat-sidenav-container>
-  <mat-sidenav
-    #drawer
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)"
-    *ngFor="let route of routes"
-  >
+  <mat-sidenav #drawer mode="side" opened="true" *ngFor="let route of routes">
     <!-- <mat-toolbar><mat-icon>menu</mat-icon></mat-toolbar> -->
 
     <mat-nav-list *ngFor="let category of route.children" class="category">
