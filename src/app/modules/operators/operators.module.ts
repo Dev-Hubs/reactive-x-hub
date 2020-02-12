@@ -19,6 +19,7 @@ import { OperatorsComponent } from './operators.component';
 import { MapComponent } from './transformation/map/map.component';
 import { TransformationComponent } from './transformation/transformation.component';
 import { CombineLatestComponent } from './join-creation/combine-latest/combine-latest.component';
+import { ConcatComponent } from './join-creation/concat/concat.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { CombineLatestComponent } from './join-creation/combine-latest/combine-l
     JoinComponent,
     JoinCreationComponent,
     TransformationComponent,
-    CombineLatestComponent
+    CombineLatestComponent,
+    ConcatComponent
   ]
 })
 export class OperatorsModule {}
