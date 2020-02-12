@@ -9,8 +9,8 @@ export class CombineLatestComponent implements OnInit {
     files: {
       'index.ts': index
     },
-    title: 'todo',
-    description: 'todo desc',
+    title: 'combineLatest',
+    description: 'combineLatest desc',
     tags: []
   };
   constructor() {}
