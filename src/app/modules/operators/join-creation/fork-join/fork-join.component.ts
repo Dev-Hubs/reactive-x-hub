@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import index from 'raw-loader!./raw/concat.ts.text';
+import index from 'raw-loader!./raw/fork-join.ts.text';
 import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.service';
 
 @Component({
-  templateUrl: './concat.component.html'
+  templateUrl: './fork-join.component.html'
 })
-export class ConcatComponent implements OnInit {
+export class ForkJoinComponent implements OnInit {
   project: CustomProject = {
     files: {
       'index.ts': index
     },
-    title: 'concat',
-    description: 'concat desc',
+    title: 'forkJoin',
+    description: 'forkJoin desc',
     tags: []
   };
   constructor() {}
