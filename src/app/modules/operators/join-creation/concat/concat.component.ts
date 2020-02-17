@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import index from 'raw-loader!./raw/concat.ts.text';
+import index from 'raw-loader!./concat.ts.text';
 import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.service';
 
 @Component({
@@ -10,8 +10,8 @@ export class ConcatComponent implements OnInit {
     files: {
       'index.ts': index
     },
-    title: 'combineLatest',
-    description: 'combineLatest desc',
+    title: 'concat',
+    description: '',
     tags: []
   };
   constructor() {}

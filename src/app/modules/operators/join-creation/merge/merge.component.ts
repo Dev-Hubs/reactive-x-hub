@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import index from 'raw-loader!./raw/merge.ts.text';
+import index from 'raw-loader!./merge.ts.text';
 import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.service';
 @Component({
   templateUrl: './merge.component.html'

@@ -1,18 +1,17 @@
 <div class="container-fluid">
   <mat-card>
     <mat-card-header>
-      <mat-card-title>concat</mat-card-title>
+      <mat-card-title>race</mat-card-title>
       <mat-card-subtitle>
-        <code lang="typescript">
-          concat&lt;O extends ObservableInput&lt;any&gt;, R&gt;(...observables:
-          (SchedulerLike | O)[]): Observable&lt;ObservedValueOf&lt;O&gt; | R&gt;
-        </code>
+        <code lang="typescript"
+          >race&lt;T&gt;(...observables: any[]): Observable&lt;T&gt;</code
+        >
       </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
-        Creates an output Observable which sequentially emits all values from
-        given Observable and then moves on to the next.
+        Returns an Observable that mirrors the first source Observable to emit
+        an item.
       </p>
     </mat-card-content>
     <mat-card-actions> </mat-card-actions>
