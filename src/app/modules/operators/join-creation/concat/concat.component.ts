@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import index from 'raw-loader!./zip.ts.text';
+import index from 'raw-loader!./concat.ts.text';
 import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.service';
 
 @Component({
-  templateUrl: './zip.component.html'
+  templateUrl: './concat.component.html'
 })
-export class ZipComponent implements OnInit {
+export class ConcatComponent implements OnInit {
   project: CustomProject = {
     files: {
       'index.ts': index
     },
-    title: 'zip',
+    title: 'concat',
     description: '',
     tags: []
   };
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import index from 'raw-loader!./zip.ts.text';
+import index from 'raw-loader!./fork-join.ts.text';
 import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.service';
 
 @Component({
-  templateUrl: './zip.component.html'
+  templateUrl: './fork-join.component.html'
 })
-export class ZipComponent implements OnInit {
+export class ForkJoinComponent implements OnInit {
   project: CustomProject = {
     files: {
       'index.ts': index
     },
-    title: 'zip',
+    title: 'forkJoin',
     description: '',
     tags: []
   };
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

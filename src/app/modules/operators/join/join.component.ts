@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './join.component.html',
-  styleUrls: ['./join.component.scss']
+  templateUrl: './join.component.html'
 })
 export class JoinComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
