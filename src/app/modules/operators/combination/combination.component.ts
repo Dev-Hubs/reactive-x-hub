@@ -1,14 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  templateUrl: './combination.component.html',
-  styleUrls: ['./combination.component.scss']
+  templateUrl: './combination.component.html'
 })
 export class CombinationComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }
