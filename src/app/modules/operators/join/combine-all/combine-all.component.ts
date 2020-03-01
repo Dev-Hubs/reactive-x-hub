@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import index from 'raw-loader!./raw/combine-all.ts.text';
+import index from 'raw-loader!./combine-all.ts.text';
 import { CustomProject } from 'src/app/modules/shared/sandbox/stackblitz-sdk.service';
 
 @Component({
