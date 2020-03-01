@@ -9,19 +9,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTableModule } from '@angular/material/table';
 import { SharedModule } from '../shared/shared.module';
 import { CombinationComponent } from './combination/combination.component';
-import { CombineLatestComponent } from './join-creation/combine-latest/combine-latest.component';
-import { ConcatComponent } from './join-creation/concat/concat.component';
-import { ForkJoinComponent } from './join-creation/fork-join/fork-join.component';
-import { JoinCreationComponent } from './join-creation/join-creation.component';
-import { MergeComponent } from './join-creation/merge/merge.component';
-import { RaceComponent } from './join-creation/race/race.component';
-import { ZipComponent } from './join-creation/zip/zip.component';
-import { CombineAllComponent } from './join/combine-all/combine-all.component';
-import { JoinComponent } from './join/join.component';
+import { JoinCreationModule } from './join-creation/join-creation.module';
+import { JoinModule } from './join/join.module';
 import { OperatorsRoutingModule } from './operators-routing.module';
 import { OperatorsComponent } from './operators.component';
-import { MapComponent } from './transformation/map/map.component';
-import { TransformationComponent } from './transformation/transformation.component';
+import { TransformationModule } from './transformation/transformation.module';
 
 @NgModule({
   imports: [
@@ -34,23 +26,11 @@ import { TransformationComponent } from './transformation/transformation.compone
     MatTableModule,
     CdkTableModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    TransformationModule,
+    JoinCreationModule,
+    JoinModule
   ],
-  declarations: [
-    MapComponent,
-    OperatorsComponent,
-    CombineAllComponent,
-    CombinationComponent,
-    MergeComponent,
-    ZipComponent,
-    JoinComponent,
-    JoinCreationComponent,
-    TransformationComponent,
-    CombineLatestComponent,
-    ConcatComponent,
-    ForkJoinComponent,
-    RaceComponent,
-    CombineLatestComponent
-  ]
+  declarations: [OperatorsComponent, CombinationComponent]
 })
 export class OperatorsModule {}

@@ -1,7 +1,6 @@
 import { fromEvent, Observable, merge } from 'rxjs';
 import { filter, takeUntil, map, mergeMap, mapTo, tap } from 'rxjs/operators';
 import { Event, EventType } from './event';
-import { shit } from './hit';
 
 export class Bridge {
   private static instance: Bridge = null;

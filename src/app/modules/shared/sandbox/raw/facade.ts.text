@@ -1,4 +1,3 @@
-import { ReactiveXHub } from './bridge';
 import { Observable } from 'rxjs';
 import { Event, EventType } from './event';
 import { bridge } from './bridge';
