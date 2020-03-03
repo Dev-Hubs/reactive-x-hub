@@ -16,7 +16,7 @@ import { Stream } from './stream';
   styleUrls: ['./sandbox.component.scss']
 })
 export class SandboxComponent implements OnInit {
-  @ViewChild('iframe', { static: true }) iframe;
+  @ViewChild('stackblitz', { static: true }) stackblitz;
   @Input() project;
   subjects: Stream[] = [];
   subscription: Stream;
@@ -27,7 +27,7 @@ export class SandboxComponent implements OnInit {
   constructor(private sdk: StackblitzSdkService) {}
 
   ngOnInit() {
-    this.sdk.embed(this.iframe.nativeElement, this.project);
+    this.sdk.embed(this.stackblitz.nativeElement, this.project);
     this.subjects = [];
     this.subscription = new Stream(-1);
   }
